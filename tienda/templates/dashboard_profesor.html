@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Panel del Profesor</h2>
+<p>Aquí puedes ver estudiantes registrados y actualizar su información/notas.</p>
+<table>
+    <tr>
+        <th>Nombre</th>
+        <th>Usuario</th>
+        <th>Contabilidad</th>
+        <th>Programación</th>
+        <th>Lenguaje y Comunicación</th>
+        <th>Acciones</th>
+    </tr>
+    {% for e in estudiantes %}
+    <tr>
+        <td>{{ e.nombre_completo }}</td>
+        <td>{{ e.usuario.username }}</td>
+        <td>{{ e.nota_contabilidad|default:'-' }}</td>
+        <td>{{ e.nota_programacion|default:'-' }}</td>
+        <td>{{ e.nota_lenguaje_comunicacion|default:'-' }}</td>
+        <td><a href="{% url 'editar_estudiante' e.id %}">Editar</a></td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="6">No hay estudiantes registrados.</td></tr>
+    {% endfor %}
+</table>
+{% endblock %}

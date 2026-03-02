@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Seguimiento Estudiantil</h1>
+<p>¿Eres estudiante o profesor?</p>
+<div class="card">
+    <h3>Estudiante</h3>
+    <a href="{% url 'registro_estudiante' %}">Registrarme como estudiante</a>
+</div>
+<div class="card">
+    <h3>Profesor</h3>
+    <a href="{% url 'registro_profesor' %}">Registrarme como profesor</a>
+</div>
+<p>¿Ya tienes cuenta? <a href="{% url 'login' %}">Inicia sesión aquí</a>.</p>
+{% endblock %}

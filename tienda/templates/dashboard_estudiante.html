@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Panel del Estudiante</h2>
+<div class="card">
+    <p><strong>Nombre:</strong> {{ perfil.nombre_completo }}</p>
+    <p><strong>Edad:</strong> {{ perfil.edad }}</p>
+    <p><strong>Teléfono:</strong> {{ perfil.telefono }}</p>
+</div>
+<h3>Materias</h3>
+<table>
+    <tr><th>Materia</th><th>Nota</th></tr>
+    <tr><td>Contabilidad</td><td>{{ perfil.nota_contabilidad|default:'Sin nota' }}</td></tr>
+    <tr><td>Programación</td><td>{{ perfil.nota_programacion|default:'Sin nota' }}</td></tr>
+    <tr><td>Lenguaje y Comunicación</td><td>{{ perfil.nota_lenguaje_comunicacion|default:'Sin nota' }}</td></tr>
+</table>
+{% endblock %}
